@@ -22,8 +22,8 @@ jobs:
         run: pnpm install
 
       - name: build ncc
-        run: ncc build index.js --license licenses.txt
-        
+        run: pnpm ncc build index.js --license licenses.txt
+
       - name: Commit generated translation files
         run: |
           git config --global user.name "github-actions"
