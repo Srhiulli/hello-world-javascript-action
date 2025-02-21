@@ -1,13 +1,12 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: "DeepL Translator"
+description: "Traduz os JSON usando a API do DeepL"
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  deepl-api-key:
+    description: "Chave da API do DeepL"
     required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  path:
+    description: "Caminho dos arquivos JSON"
+    required: true
 runs:
-  using: 'node20'
-  main: 'index.js'
+  using: "node20"
+  main: "index.js"
