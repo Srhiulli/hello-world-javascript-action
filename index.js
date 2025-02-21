@@ -58,9 +58,9 @@ const updateTranslations = (targetFile, targetContent, missingKeys, translatedTe
 };
 const processTranslation = async (lang) => {
   const targetFile = `${localesPath}/${lang}.json`;
-  console.log(`🔍 Comparando '${baseFile}' com '${targetFile}'...`);
+  console.log(`🔍 Comparando '${localesPath}' com '${targetFile}'...`);
 
-  const baseContent = readJsonFile(baseFile);
+  const baseContent = readJsonFile(localesPath);
   const targetContent = readJsonFile(targetFile) || {};
 
   if (!baseContent) {
