@@ -7,6 +7,9 @@ inputs:
   path:
     description: "Caminho dos arquivos JSON"
     required: true
+  base-file:
+    description: "Arquivo base para tradução"
+    required: true
 runs:
   using: "node20"
   main: "dist/index.js"

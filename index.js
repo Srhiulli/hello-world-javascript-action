@@ -4,6 +4,7 @@ const core = require('@actions/core');
 
 const DEEPL_API_KEY = core.getInput('deepl-api-key');
 const localesPath = core.getInput('path');
+const baseFile = core.getInput('base-file');
 
 if (!DEEPL_API_KEY || !localesPath) {
   core.setFailed("❌ Faltam inputs obrigatórios (deepl-api-key ou path)");
@@ -12,6 +13,7 @@ if (!DEEPL_API_KEY || !localesPath) {
 
 console.log(`✅ API Key recebida: ${DEEPL_API_KEY}`);
 console.log(`📂 Path dos arquivos: ${localesPath}`);
+console.log(`📄 Arquivo base: ${baseFile}`);
 
 const getLanguages = () => { 
   const files = fs.readdirSync(localesPath);
@@ -58,9 +60,9 @@ const updateTranslations = (targetFile, targetContent, missingKeys, translatedTe
 };
 const processTranslation = async (lang) => {
   const targetFile = `${localesPath}/${lang}.json`;
-  console.log(`🔍 Comparando '${localesPath}' com '${targetFile}'...`);
+  console.log(`🔍 Comparando '${baseFile}' com '${targetFile}'...`);
 
-  const baseContent = readJsonFile(localesPath);
+  const baseContent = readJsonFile(baseFile);
   const targetContent = readJsonFile(targetFile) || {};
 
   if (!baseContent) {

@@ -21,4 +21,7 @@ jobs:
         run: pnpm install
 
       - name: build ncc
-        run: ncc build index.js --license licenses.txt 
+        run: ncc build index.js --license licenses.txt
+
+
+        
