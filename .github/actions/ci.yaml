@@ -23,5 +23,10 @@ jobs:
       - name: build ncc
         run: ncc build index.js --license licenses.txt
 
-
-        
+      - name: Commit generated translation files
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add .
+          git commit -m "Commitando dist :))"
+          git push
